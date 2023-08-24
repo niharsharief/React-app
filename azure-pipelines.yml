@@ -22,3 +22,7 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run build'
+- task: Docker@2
+  inputs:
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
