@@ -10,14 +10,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
+- task: NodeTaskRunnerInstaller@0
   inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    nodeVersion: '6'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-  
+- task: Npm@1
+  inputs:
+   command: 'install'
 
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
